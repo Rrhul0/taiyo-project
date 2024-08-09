@@ -1,6 +1,8 @@
 import { AddressBook, PresentationChart } from '@phosphor-icons/react';
 
-export const SIDEBAR_OPTIONS = [
+import { TNavigationOption } from '@atoms/SideNavigationItem';
+
+export const SIDEBAR_OPTIONS: TNavigationOption[] = [
 	{
 		title: 'Dashboard',
 		href: '/dashboard',
