@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 
 import useOnClickOutside from '@hooks/useOnOutsideClick';
 import { Conditional } from '@utils/commonUtils';
+import { X } from '@phosphor-icons/react';
 
 type TDrawerProps = {
-	anchorElement: Element;
+	anchorElement?: Element;
 	title: string;
-	onClose: () => void;
+	onClose?: () => void;
 	children: ReactNode;
 };
 
@@ -61,10 +62,13 @@ const Drawer = ({
 			</Conditional>
 			<div
 				ref={drawerWrapperRef}
-				className="z-[1] relative h-auto rounded-lg min-h-24 overflow-hidden bg-white"
+				className="z-[1] relative h-auto rounded-lg min-w-[28rem] min-h-24 overflow-hidden bg-white"
 			>
 				<Conditional if={!isAnchored}>
-					<h3 className="">{title}</h3>
+					<h3 className="pt-3 pb-8 px-6 font-bold text-xl">{title}</h3>
+					<div className="absolute top-3 right-3 p-2 text-neutral-700 hover:bg-neutral-100 rounded-full">
+						<X size={16} weight="bold" />
+					</div>
 				</Conditional>
 				<div className="h-full text-start grow overflow-y-auto">{children}</div>
 			</div>
