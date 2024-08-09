@@ -5,8 +5,9 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import JotaiProvider from '@providers/jotaiProvider';
 import QueryClientProvider from '@providers/queryClientProvider';
+import Layout from '@organisms/Layout';
 
-type CustomApp = AppProps
+type CustomApp = AppProps;
 
 const Debug = () => {
 	return null;
@@ -26,7 +27,9 @@ const App = ({ Component, pageProps }: CustomApp) => {
 			</Head>
 			<QueryClientProvider>
 				<JotaiProvider>
-					<Component {...pageProps} />
+					<Layout>
+						<Component {...pageProps} />
+					</Layout>
 					<Debug />
 				</JotaiProvider>
 			</QueryClientProvider>
