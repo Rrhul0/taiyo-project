@@ -1,0 +1,21 @@
+# Dependencies
+node_modules
+*.tsbuildinfo
+
+# PandaCSS Styled-system
+styled-system
+
+# Build directory
+.next
+
+# Editors
+.idea
+.vscode
+*.iml
+.env.development
+.env
+.env.local
+
+yarn-error.log
+.vercel
+.yarn

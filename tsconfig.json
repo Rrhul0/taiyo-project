@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"strictNullChecks": false,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"baseUrl": ".",
+		"paths": {
+			"@utils/*": ["src/utils/*"],
+			"@static/*": ["public/static/*"],
+			"@const": ["src/constants/index"],
+			"@const/*": ["src/constants/*"],
+			"@atoms/*": ["src/components/atoms/*"],
+			"@providers/*": ["src/providers/*"],
+			"@molecules/*": ["src/components/molecules/*"],
+			"@organisms/*": ["src/components/organisms/*"],
+			"@components/*": ["src/components/*"],
+			"@store": ["src/store/index"],
+			"@store/*": ["src/store/*"],
+			"@hooks/*": ["src/hooks/*"],
+		},
+		"incremental": true,
+		"plugins": [{ "name": "next" }]
+	},
+	"exclude": ["node_modules", "codemod"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"styled-system"
+	]
+}

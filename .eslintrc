@@ -1,0 +1,95 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"prettier",
+		"react",
+		"react-hooks",
+		"jsx-a11y",
+		"import"
+	],
+	"rules": {
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{ "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+		],
+		"react/react-in-jsx-scope": "off",
+		"react/prop-types": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"no-unused-vars": "off",
+		"no-undef": "off",
+		"no-case-declarations": "off",
+		"prettier/prettier": "off",
+		"import/order": [
+			"warn",
+			{
+				"newlines-between": "always",
+				"groups": [
+					"builtin",
+					"external",
+					"internal",
+					["sibling", "parent", "index"]
+				],
+				"pathGroups": [
+					{
+						"pattern": "components/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "(hooks|providers)/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "(utils|constants|static)/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "(@store)/**|@store",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "(selectors|atoms|molecules|organisms|legacy)/**",
+						"group": "internal",
+						"position": "after"
+					}
+				]
+			}
+		]
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true,
+			"node": true
+		},
+		"project": "./tsconfig.json",
+		"tsconfigRootDir": "./"
+	},
+	"env": {
+		"es6": true,
+		"browser": true,
+		"node": true
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"typescript": {},
+			"node": {
+				"extensions": [".js"]
+			}
+		}
+	}
+}
