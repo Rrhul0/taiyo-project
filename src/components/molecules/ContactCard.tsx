@@ -1,9 +1,11 @@
 import { DotsThree, EnvelopeSimple, Phone } from '@phosphor-icons/react';
 import Avatar from 'boring-avatars';
 import React, { useRef, useState } from 'react';
+import { useSetAtom } from 'jotai';
 
 import { Conditional } from '@utils/commonUtils';
 import ContactModel from '@organisms/ContactModel';
+import { contactsLocalStoreAtom } from '@store/contacts';
 
 import Drawer from './Drawer';
 
@@ -17,6 +19,7 @@ const ContactCard = ({ contact }: { contact: ContactType }) => {
 	const buttonRef = useRef<HTMLButtonElement>(null);
 
 	const [isEditOpened, setEditOpened] = useState(false);
+	const setContacts = useSetAtom(contactsLocalStoreAtom);
 
 	return (
 		<div className="w-72 border rounded-xl overflow-hidden shadow-md">
@@ -59,7 +62,15 @@ const ContactCard = ({ contact }: { contact: ContactType }) => {
 								type="button"
 								title="manage contact"
 								className="border p-1.5 rounded-lg shadow-sm text-red-500 border-red-500"
-								onClick={() => setMenuOpened(true)}
+								onClick={() => {
+									setMenuOpened(true);
+									setContacts((prev) => {
+										return prev.filter(
+											(prevContact) =>
+												JSON.stringify(prevContact) !== JSON.stringify(contact)
+										);
+									});
+								}}
 							>
 								Delete
 							</button>

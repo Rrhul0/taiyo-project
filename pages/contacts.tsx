@@ -11,7 +11,7 @@ const ContactsPage = () => {
 
 	return (
 		<PageLayout title="Contacts" headerButton={<ContactAddButton />}>
-			<div className="flex flex-wrap gap-4 my-4 *:md:basis-[40%] *:lg:basis-[30%] *:grow *:shrink items-start h-fit">
+			<div className="flex flex-wrap gap-4 my-4 *:md:basis-[40%] *:lg:basis-[30%] *:grow *:shrink h-fit">
 				{contacts.map((contact, index) => (
 					<ContactCard contact={contact} key={contact.firstName + index} />
 				))}
