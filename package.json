@@ -14,13 +14,16 @@
 		"@tanstack/react-query": "^5.29.2",
 		"boring-avatars": "^1.10.2",
 		"jotai": "^2.4.3",
+		"leaflet": "^1.9.4",
 		"next": "^14.2.4",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-hook-form": "^7.51.5",
+		"react-leaflet": "^4.2.1",
 		"react-loading-skeleton": "^3.1.1"
 	},
 	"devDependencies": {
+		"@types/leaflet": "^1.9.12",
 		"@types/node": "20.6.2",
 		"@types/react": "^18.2.21",
 		"@types/react-dom": "^18.3.0",
