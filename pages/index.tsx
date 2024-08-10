@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 const Page = () => {
-	return null;
+	return <div></div>;
 };
 
 export default Page;
