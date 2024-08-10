@@ -15,9 +15,10 @@ const ContactModel = ({ onClose }: { onClose: () => void }) => {
 	const { control, handleSubmit } = useForm<FormInputs>();
 
 	const onSubmit: SubmitHandler<FormInputs> = (data) => console.log(data);
+
 	return (
 		<Drawer title="Contact" onClose={onClose}>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
 				<Controller
 					control={control}
 					name="firstname"
@@ -49,12 +50,17 @@ const ContactModel = ({ onClose }: { onClose: () => void }) => {
 					render={({ field, fieldState }) => (
 						<TextInput
 							{...field}
-							label="Email name"
+							label="Email"
 							error={fieldState?.error?.message}
 						/>
 					)}
 				/>
-				<button type="submit">Save contact</button>
+				<button
+					type="submit"
+					className="bg-green-700 text-white py-3 px-6 rounded-2xl text-lg"
+				>
+					Save contact
+				</button>
 			</form>
 		</Drawer>
 	);

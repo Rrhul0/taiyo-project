@@ -65,12 +65,19 @@ const Drawer = ({
 				className="z-[1] relative h-auto rounded-lg min-w-[28rem] min-h-24 overflow-hidden bg-white"
 			>
 				<Conditional if={!isAnchored}>
-					<h3 className="pt-3 pb-8 px-6 font-bold text-xl">{title}</h3>
-					<div className="absolute top-3 right-3 p-2 text-neutral-700 hover:bg-neutral-100 rounded-full">
+					<h3 className="pt-6 pb-2 px-6 font-semibold text-2xl">{title}</h3>
+					<button
+						title="Close"
+						onClick={onClose}
+						type="button"
+						className="absolute top-3 right-3 p-2 text-neutral-700 hover:bg-neutral-100 rounded-full"
+					>
 						<X size={16} weight="bold" />
-					</div>
+					</button>
 				</Conditional>
-				<div className="h-full text-start grow overflow-y-auto">{children}</div>
+				<div className="h-full text-start grow overflow-y-auto px-6 py-6">
+					{children}
+				</div>
 			</div>
 		</div>,
 		document.body

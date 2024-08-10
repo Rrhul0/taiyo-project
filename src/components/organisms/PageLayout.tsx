@@ -13,8 +13,8 @@ const PageLayout = ({
 }) => {
 	return (
 		<section>
-			<header>
-				<h1>{title}</h1>
+			<header className="flex items-center justify-between px-6 py-4 border-b">
+				<h1 className="font-semibold text-3xl">{title}</h1>
 				<Conditional if={headerButton}>{headerButton}</Conditional>
 			</header>
 			<div>{children}</div>

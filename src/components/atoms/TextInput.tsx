@@ -1,4 +1,5 @@
 import React, { ComponentProps, forwardRef, Ref } from 'react';
+import { WarningOctagon } from '@phosphor-icons/react';
 
 import { Conditional } from '@utils/commonUtils';
 
@@ -11,13 +12,16 @@ export default forwardRef(function TextInput(
 	ref: Ref<HTMLInputElement>
 ) {
 	return (
-		<div>
-			<label>
-				<span>{label}</span>
-				<input {...props} ref={ref} />
+		<div className="relative h-fit w-full">
+			<label className="input-label w-full">
+				<input {...props} ref={ref} placeholder=" " />
+				<span className={`label-text`}>{label}</span>
 			</label>
 			<Conditional if={error}>
-				<span>{error}</span>
+				<div className="text-red-600 font-semibold flex gap-1 items-center pt-2">
+					<WarningOctagon weight="bold" />
+					<span>{error}</span>
+				</div>
 			</Conditional>
 		</div>
 	);

@@ -8,7 +8,11 @@ const ContactAddButton = () => {
 	const [isModelOpened, setModelOpen] = useState(false);
 	return (
 		<>
-			<button type="button" onClick={() => setModelOpen(true)}>
+			<button
+				type="button"
+				className="bg-black rounded-2xl text-white px-5 py-3 text-xl"
+				onClick={() => setModelOpen(true)}
+			>
 				Add contact
 			</button>
 			<Conditional if={isModelOpened}>
