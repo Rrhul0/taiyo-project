@@ -4,14 +4,18 @@ import { useAtomValue } from 'jotai';
 import PageLayout from '@organisms/PageLayout';
 import ContactAddButton from '@organisms/ContactAddButton';
 import { contactsLocalStoreAtom } from '@store/contacts';
+import ContactCard from '@molecules/ContactCard';
 
 const ContactsPage = () => {
 	const contacts = useAtomValue(contactsLocalStoreAtom);
+
 	return (
 		<PageLayout title="Contacts" headerButton={<ContactAddButton />}>
-			{contacts.map((contact) => (
-				<div key={contact.firstName}>{contact.firstName}</div>
-			))}
+			<div className="flex flex-wrap gap-4 my-4 *:md:basis-[40%] *:lg:basis-[30%] *:grow *:shrink items-start h-fit">
+				{contacts.map((contact, index) => (
+					<ContactCard contact={contact} key={contact.firstName + index} />
+				))}
+			</div>
 		</PageLayout>
 	);
 };

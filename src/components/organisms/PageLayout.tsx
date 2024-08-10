@@ -12,12 +12,12 @@ const PageLayout = ({
 	headerButton?: ReactNode;
 }) => {
 	return (
-		<section>
-			<header className="flex items-center justify-between px-6 py-4 border-b">
+		<section className="flex flex-col">
+			<header className="flex items-center justify-between h-20 px-6 shadow-xl rounded-lg bg-neutral-50 relative z-10">
 				<h1 className="font-semibold text-3xl">{title}</h1>
 				<Conditional if={headerButton}>{headerButton}</Conditional>
 			</header>
-			<div>{children}</div>
+			<div className="overflow-auto h-[calc(100dvh-110px)]">{children}</div>
 		</section>
 	);
 };

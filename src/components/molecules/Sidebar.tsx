@@ -8,7 +8,7 @@ const Sidebar = () => {
 	const { asPath } = useRouter();
 
 	return (
-		<nav className="flex flex-col px-2 py-6 gap-1">
+		<nav className="flex flex-col px-2 py-6 gap-1 w-60">
 			{SIDEBAR_OPTIONS.map((option, index) => (
 				<SideNavigationItem
 					option={option}

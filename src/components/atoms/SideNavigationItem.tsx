@@ -19,7 +19,7 @@ const SideNavigationItem = ({
 }) => {
 	return (
 		<Link
-			className={`px-5 py-3 flex items-center gap-4 rounded-xl text-lg font-semibold ${
+			className={`px-4 py-2.5 flex items-center gap-4 rounded-xl text-lg font-semibold ${
 				isActive ? 'bg-black text-white' : 'hover:bg-neutral-200'
 			}`}
 			href={option?.href}
