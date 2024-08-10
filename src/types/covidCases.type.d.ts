@@ -17,3 +17,8 @@ type CountryCaseType = {
 	population: number;
 	continent: string;
 };
+
+type TCovidCasesWithDate = {
+	cases: Record<string, number>;
+	deaths: Record<string, number>;
+};
