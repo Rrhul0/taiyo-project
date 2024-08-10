@@ -15,7 +15,12 @@ export default forwardRef(function TextInput(
 		<div className="relative h-fit w-full">
 			<label className="input-label w-full">
 				<input {...props} ref={ref} placeholder=" " />
-				<span className={`label-text`}>{label}</span>
+				<span className={`label-text`}>
+					{label}
+					<span className="text-red-500 font-bold">
+						{props?.required && '*'}
+					</span>
+				</span>
 			</label>
 			<Conditional if={error}>
 				<div className="text-red-600 font-semibold flex gap-1 items-center pt-2">

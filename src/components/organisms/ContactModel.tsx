@@ -1,31 +1,31 @@
 import React from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useSetAtom } from 'jotai';
 
 import TextInput from '@atoms/TextInput';
 import Drawer from '@molecules/Drawer';
-
-type FormInputs = {
-	firstname: string;
-	lastname: string;
-	email: string;
-	isActive: boolean;
-};
+import { contactsLocalStoreAtom } from '@store/contacts';
 
 const ContactModel = ({ onClose }: { onClose: () => void }) => {
-	const { control, handleSubmit } = useForm<FormInputs>();
+	const { control, handleSubmit } = useForm<ContactType>();
+	const setContacts = useSetAtom(contactsLocalStoreAtom);
 
-	const onSubmit: SubmitHandler<FormInputs> = (data) => console.log(data);
+	const onSubmit: SubmitHandler<ContactType> = (data) => {
+		setContacts((prev) => [...prev, data]);
+		onClose();
+	};
 
 	return (
 		<Drawer title="Contact" onClose={onClose}>
 			<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
 				<Controller
 					control={control}
-					name="firstname"
+					name="firstName"
 					rules={{ required: 'First name is required' }}
 					render={({ field, fieldState }) => (
 						<TextInput
 							{...field}
+							required
 							label="First name"
 							error={fieldState?.error?.message}
 						/>
@@ -33,8 +33,7 @@ const ContactModel = ({ onClose }: { onClose: () => void }) => {
 				/>
 				<Controller
 					control={control}
-					name="lastname"
-					rules={{ required: 'Last name is required' }}
+					name="lastName"
 					render={({ field, fieldState }) => (
 						<TextInput
 							{...field}
@@ -50,6 +49,7 @@ const ContactModel = ({ onClose }: { onClose: () => void }) => {
 					render={({ field, fieldState }) => (
 						<TextInput
 							{...field}
+							required
 							label="Email"
 							error={fieldState?.error?.message}
 						/>
